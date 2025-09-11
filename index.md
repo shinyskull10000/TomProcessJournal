@@ -28,10 +28,27 @@ This project aims to be context-aware with the ability to respond to the context
 
 Most Important:
     - Audio File Raw Data analysis
+    - having it not spike often, this means alerts hopefully wont be sporradic and instead contained if consistent noise is persistent.
+    - having it interact with the site dynamically.
 
 How would i begin to achieve this?
  I would not be able to use python to do this.
 
- I would have to use JavaScripts web audio API
+ I would have to use JavaScripts web audio API. This means that the data collection code would be front-end. I do not have much experience with java-script so i am going to have to learn about what i need to do fo rthis project.
 
-However if i want to run aackend, i may want to use flask and connect it to something like redis. This nosql system could make it so I could capture login information and hash and store it. Connected to this form of account, it would mean that a user would be able to then create a form of schedule for studying. whether this be
+
+However if i want to run backend, i may want to use flask and connect it to something like redis. This nosql system could make it so I could capture login information and hash and store it. Connected to this form of account, it would mean that a user would be able to then create a form of schedule for studying.
+
+
+## Third Entry 09/09
+What i want to know
+Investigation into similar projects
+Investigation into how load an environment has to be before it could be a distraction
+would it be good ot have a setting to set level of distraction in dB?
+
+Interesting study: https://crl.acrl.org/index.php/crl/article/view/24743/33322  Talks about the effectiveness library use by students. The reason the study is interesting for this project is that libraries are typically quiet learning environments which are highlighted by the fact that they have few distractions.
+
+
+
+
+
