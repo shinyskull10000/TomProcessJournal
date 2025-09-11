@@ -4,6 +4,8 @@
 
 For the purposes of helping you study
 
+### Brainstorm
+
     - monitor noise data not raw audio to detect distractions
     - Allows you to set a timer to distract, time might be able to be hidden to also reduce distractions.
     - Could have multiple modes (would need to research what people find less distracting to give users a choice about the websites perception and actions)
@@ -46,7 +48,79 @@ Investigation into similar projects
 Investigation into how load an environment has to be before it could be a distraction
 would it be good ot have a setting to set level of distraction in dB?
 
-Interesting study: https://crl.acrl.org/index.php/crl/article/view/24743/33322  Talks about the effectiveness library use by students. The reason the study is interesting for this project is that libraries are typically quiet learning environments which are highlighted by the fact that they have few distractions.
+### Interesting study
+https://crl.acrl.org/index.php/crl/article/view/24743/33322  Talks about the effectiveness library use by students. The reason the study is interesting for this project is that libraries are typically quiet learning environments which are highlighted by the fact that they have few distractions.
+
+
+
+
+## Fourth Entry 11/09
+### Similar Projects
+#### https://www.stayinsession.com/ : Session
+This is a web application on macos and IOS which aims to block distracting apps and set 25 minute timers to dedicate time to study.
+However, in order to use session, you must pay a subscription which may exclude large social populations of users from benefitting from such technology.
+This is a timer app which follows the Pomodoro Technique: https://www.coursera.org/articles/pomodoro-study-method
+
+Breakdown on the pomodoro study method:
+    - Choose a task to complete
+    - set a timer for 25 minutes
+    - work uninterrupted until the timer goes off
+    - take a short break. approx 5 mins
+    - After repeating four times, take a larger break.
+This technique is used to maximise focus on tasks in productive time managed method.
+
+How my project is similar:
+    - the use of timers to incentivise dedicated times of focus to put towards studying/work
+    - The optional use of scheduling to ensure consistent studying/working
+
+How my project differs:
+    - For one, my project is responsive, it utilises information gathered from the users surroundings (dB) to find distractions
+    - This difference should provide a more effective way of detering distractions then the optional disabling of apps on a computer/ phone used in session.
+    - My project would be open source/ free.
+
+
+### Research into when an environment is too loud to work effectivley in
+This is a key aspect of what needs to be researched in order to be able to not only identify distracting environments when i move forward to implementation. This could also be expanded between multiple modes for stricter silence and lack of distractions to allowing for a minor distraction filled environment if the user cannot find a quiter place.
+
+"The results of this study showed that as a stressor, noise affects cognitive performance and brain signals. Also, noise pressure level is an important factor regarding impairment of cognitive function and power spectral density of the brain, meaning that low levels noise is not as effective compared to high levels of noise. It can be said that the results of this study are in agreement with the proposal that a relationship exists between low performance and high levels noise"
+From an study: https://pmc.ncbi.nlm.nih.gov/articles/PMC6901841/ 
+
+Jafari, M. J., Khosrowabadi, R., Khodakarim, S., & Mohammadian, F. (2019). The Effect of Noise Exposure on Cognitive Performance and Brain Activity Patterns. Open access Macedonian journal of medical sciences, 7(17), 2924–2931. https://doi.org/10.3889/oamjms.2019.742
+
+This study is quite interesting as it delves into the effect of sound acting environmental stressors and its ties to cognitive function.
+
+
+
+### Looking into the Web audio API
+While a web application could be the most effective which I am going to discuss. There might have to be swift overhauls to an application through something like TKInter in python if certain features become unavailable to be developed. This process would be quite annoying as the process which utilises Web Audio APIs 
+
+##### This is idea for javascipt implemented into html is asssisted by the use of chatgpt as a walkthrough for how this application may be possible
+This is build first by capturing microphone audio (this is necessary for having the application to be able to be responsive):
+const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+This gives a mediastream stored as a const variable to be used to be plugged into webAPIS
+
+Utilising Audio Context, Media Stream Source and Analyser Node
+
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const source = audioCtx.createMediaStreamSource(stream);
+const analyser = audioCtx.createAnalyser();
+
+The analyser allows for code to be used on the analyed raw audio to produce dbFS.
+
+An important distinction to make between the two types of decibel measurements:
+dBFS
+dBSPL
+
+dBSPL is the absolute value which represents sound pressure created by soundwaves while dBFS which is more relative and measures of the amplitude of a digital audio signal.
+
+While human hearing is highly related to dBSPL, it is possible for dBFS to still detect distraction throughs spikes in audio or consistently loud sounds where dBFS is near -10 to 0. 
+
+It may take tinkering to discover a recommended balance between loud noises of human hearing vs what the computer hears and can calculate.
+
+
+
+
 
 
 
