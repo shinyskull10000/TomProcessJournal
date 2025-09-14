@@ -102,6 +102,9 @@ This gives a mediastream stored as a const variable to be used to be plugged int
 
 Utilising Audio Context, Media Stream Source and Analyser Node
 
+AudioContext is a way to interface with audio with nodes and allows for audio processing and or decoding.
+MediaStream SOurce is a method of audio context, it 
+
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 const source = audioCtx.createMediaStreamSource(stream);
 const analyser = audioCtx.createAnalyser();
@@ -113,16 +116,25 @@ dBFS
 dBSPL
 
 dBSPL is the absolute value which represents sound pressure created by soundwaves while dBFS which is more relative and measures of the amplitude of a digital audio signal.
-
 While human hearing is highly related to dBSPL, it is possible for dBFS to still detect distraction throughs spikes in audio or consistently loud sounds where dBFS is near -10 to 0. 
-
 It may take tinkering to discover a recommended balance between loud noises of human hearing vs what the computer hears and can calculate.
 
 
+## Fifth Entry 12/09
+
+Chosing Name for the project.
+
+Decided to go with either QuietMind or HushStudy
+
+QuietMind would most likely be the chosen option as it seems a bit more friendly due to how Hush has some negative connotations. This is further explored for when a user wanting to use the app would most likely not be the one making the noise as background sound would be the cause of distractions. 
 
 
+## Sixth Entry 14/09
 
-
+### Understanding Possible Realisations
+With the focus of the website being made on surrounding the basis that it is responsive to the audio the computer can here to determine if the environment is far too distracting, it may be difficult to implment other features.
+This concern majorly stems from the idea of implementing a savable schedule feature. This would require the use of a database to store information so that it can be accessed depending on the user. 
+This means that it would require for me to implement a secure login system which hides the backend features (such as database keys and login information), encrypts user passwords and can 
 
 
 
