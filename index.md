@@ -134,7 +134,17 @@ QuietMind would most likely be the chosen option as it seems a bit more friendly
 ### Understanding Possible Realisations
 With the focus of the website being made on surrounding the basis that it is responsive to the audio the computer can here to determine if the environment is far too distracting, it may be difficult to implment other features.
 This concern majorly stems from the idea of implementing a savable schedule feature. This would require the use of a database to store information so that it can be accessed depending on the user. 
-This means that it would require for me to implement a secure login system which hides the backend features (such as database keys and login information), encrypts user passwords and can 
+This means that it would require for me to implement a secure login system which hides the backend features (such as database keys and login information) as well as encrypting user passwords as they are stored.
+
+## Seventh Entry 15/09
+
+### Experimenting with the APIs
+I created as simple web application to explore how the use of the APIs discussed earlier could be utilised to make this project.
+The link for the github pages is this: https://shinyskull10000.github.io/WorkingWithSoundAPIS/
+The website shows both the dBFS of the user microphone as well as the average over time. How dBFS works is that it is a negative scale which as it approaches 0, the louder the sound it registers is. This website also has a trigger when the sound average is too loud, the background of the website turns red.
+While these are important steps for the process of development for QuietMind, it is important to configure as well as understand what the limits in dBFS should be to determine a loud environment. Ways I might figure this out could be testing with myself as well as testing with other people. I could also try and find new ways to record sound pressure at the time as i record the dBFS to try and find correlation for fine tuning.
+
+
 
 
 
