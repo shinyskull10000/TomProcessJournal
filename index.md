@@ -141,7 +141,8 @@ This means that it would require for me to implement a secure login system which
 ### Experimenting with the APIs
 I created as simple web application to explore how the use of the APIs discussed earlier could be utilised to make this project.
 The link for the github pages is this: https://shinyskull10000.github.io/WorkingWithSoundAPIS/
-The website shows both the dBFS of the user microphone as well as the average over time. How dBFS works is that it is a negative scale which as it approaches 0, the louder the sound it registers is. This website also has a trigger when the sound average is too loud, the background of the website turns red.
+The website shows both the dBFS of the user microphone as well as the average over time. How dBFS works is that it is a negative scale which as it approaches 0, the louder the sound it registers is. This website also has a trigger when the sound average is too loud, the background of the website turns red. This is currently set to a trigger at average -20 dBFS as that it would require quite a loud/ distracting environment, perfect for what I am looking to achieve with quiet mind.  
+
 While these are important steps for the process of development for QuietMind, it is important to configure as well as understand what the limits in dBFS should be to determine a loud environment. Ways I might figure this out could be testing with myself as well as testing with other people. I could also try and find new ways to record sound pressure at the time as i record the dBFS to try and find correlation for fine tuning.
 
 
