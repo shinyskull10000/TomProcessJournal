@@ -147,5 +147,15 @@ While these are important steps for the process of development for QuietMind, it
 
 
 
+## Eight Entry 7/10
+
+### Consideration of having a whitenoise generator in the application of well, to avoid total silence but to not have an overly loud environment.
+
+This would be for the purpose of minimizing the impact of sharp crashing inconsistent sounds for the user. This is too solve for an issue the app would be designed to address.
 
 
+### The use of Chatgpt to assist in app creation
+The use of chatgpt to create a prototype of my app. This prototype consists of a way to measure and represent the microphone data. The prototype also includes a session feature which takes notes of interruptions (every second which the noise average is louder then the set threshold) and creates a json document surrounding the history and information it gathered around the session.
+
+### Problems I have with the prototype
+When the incident occurs, it sends a notification from the website about how the environment is too loud. The problem with this is how it is currently set up is that it will spam notifications every second the sound is louder than the threshold. This can be 
