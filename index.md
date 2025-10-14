@@ -147,7 +147,7 @@ While these are important steps for the process of development for QuietMind, it
 
 
 
-## Eight Entry 7/10
+## Eighth Entry 7/10
 
 ### Consideration of having a whitenoise generator in the application of well, to avoid total silence but to not have an overly loud environment.
 
@@ -158,4 +158,25 @@ This would be for the purpose of minimizing the impact of sharp crashing inconsi
 The use of chatgpt to create a prototype of my app. This prototype consists of a way to measure and represent the microphone data. The prototype also includes a session feature which takes notes of interruptions (every second which the noise average is louder then the set threshold) and creates a json document surrounding the history and information it gathered around the session.
 
 ### Problems I have with the prototype
-When the incident occurs, it sends a notification from the website about how the environment is too loud. The problem with this is how it is currently set up is that it will spam notifications every second the sound is louder than the threshold. This can be 
+When the incident occurs, it sends a notification from the website about how the environment is too loud. The problem with this is how it is currently set up is that it will spam notifications every second the sound is louder than the threshold. This can be deeply annoying and most likely would have to be fixed by having the alert trigger only once per peak reached. 
+
+
+## Ninth Entry
+### Implementation of White noise generator
+added a part to the index.html of the quietmind project which enables the the use of the of a quiet mind generator. Uses the Noise node to generate whitenoise through gain.
+### The next steps with whitenoise generator. 
+#### Ideas
+If there are large consistent spikes of noise, for it to be automatically turned on. 
+If there are a large consistent spikes of noise, it asks if the user wants to turn on the white noise monitor
+For when doing sound calibration, would it be possible to also calibrate an appropriate white noise level suited for the desired sound level measured in -db.
+Say when it is enabled, it is tied to the -db measurement, so when the average would be around -50 the environment is quite quiet so a low whitenoise would be important. but when the average is set around e.g -15, a loud whitenoise may be necessary 
+All of this should be subject to testing to determine what is effective.
+Maybe add a question to the user when first running the app or a toggle depending if the user has a headset/headphones and microphone plugged in to their audio or not. 
+A measure of uneveness. Use entropy to detect unpredictable sounds and increase the whitenoise sound. The higher the entropy the higher the whitenoise. This should be the most effective solution when regarding the use of responsive whitenoise for the quiet mind web application
+
+### Testing needed to be done
+See how loud the whitenoise generated is approximately when no headphones are not plugged in. 
+Is it equivalent to typing in terms of how loud device is. Only is that when typing without a proper microphone. the peaks are incredibly loud and for these.
+
+### Implementation of Responsive Whitenoise in response to entropy
+e.g. when a session is started white noise will play dependent on the entropy. It will be slightly dynamic with fixed levels it moves between. it may also be important to include fading between moving between levels of noise as jumps between levels of sound that are sharp are also distracting. 
