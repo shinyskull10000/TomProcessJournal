@@ -161,7 +161,7 @@ The use of chatgpt to create a prototype of my app. This prototype consists of a
 When the incident occurs, it sends a notification from the website about how the environment is too loud. The problem with this is how it is currently set up is that it will spam notifications every second the sound is louder than the threshold. This can be deeply annoying and most likely would have to be fixed by having the alert trigger only once per peak reached. 
 
 
-## Ninth Entry
+## Ninth Entry 14/10
 ### Implementation of White noise generator
 added a part to the index.html of the quietmind project which enables the the use of the of a quiet mind generator. Uses the Noise node to generate whitenoise through gain.
 ### The next steps with whitenoise generator. 
@@ -180,3 +180,38 @@ Is it equivalent to typing in terms of how loud device is. Only is that when typ
 
 ### Implementation of Responsive Whitenoise in response to entropy
 e.g. when a session is started white noise will play dependent on the entropy. It will be slightly dynamic with fixed levels it moves between. it may also be important to include fading between moving between levels of noise as jumps between levels of sound that are sharp are also distracting. 
+
+
+## Tenth Entry 4/11
+### Implementation of the entropy in the website.
+Calculation of the entropy for the recorded microphone audio was added. The entropy is scaled from 0 to 1 where 0 to 0.3 is low entropy with predictable noise in the background e.g. a AC hum or a fan. Entropy measured from 0.4 to 0.6 is slightly more unpredictable with sudden noises occuring with some patterns. With lastly a high entropy of 0.7 to 1 where the sound is chaotic, unpredictable with high variation in sudden noises.
+
+Includes a slider which handles smoothing. The slider goes from 1 to 20 where a each number represents a 200ms frame/window of time where entropy is calculated. This means that 20, the entropy calculater would be smooth and slower to react to loud noises as it calculates the 20 readings over a 4 second window to get the average entropy. On the other end, a 1 means that an average would be calculated after every single reading leading to a very jumpy entropy readings.
+
+Lastly this calculation was then tied to the whitenoise to have a louder whitenoise with higher entropy and a quieter whitenoise with a lower entropy. This choice was made out of the idea that a whitenoise sound would reduce the environments overall entropy of the users environment resulting in a higher quality studying enivornment.
+
+
+## Eleventh Entry 6/11
+### Final Prototype Design // The exclusions 
+The final prototype of QuietMind does not include being live hosted with a scheduling, login functionality. There are a few limitations when it comes to wanting to live host the website with password implementation and a database linked to save user data. This is mainly that since the current prototype has all the code within the index.html file, it means that every bit of code is exposed. If willing someone with no good intentions could look at the website with the login functionality and find the keys for the database exposed in the code. The way to get around this would be to break up the code into seperate files and live host it on a HTTPS protected domain. As these would come with additional costs and further precautioned, the the current version of the prototype will not include the schedule/ login system due to security risks
+
+### Writing a script for pitch video for QuietMind
+Introduction
+    - Introduce self
+    - QuietMind is a responsive web application study assisstant.
+    
+Purpose/use cases of QuietMind
+    - Studies show studying in loud distracting environments can negatively impact the effectiveness of time spent studying
+    - While loud environments can also negatively impact studying, if a place is too quiet, it could raise anxiety levels as the only things you might hear would be bodily sounds e.g. heartbeat, movement of muscles and joints. Studies of Anechoic chambers prove this theory as no person can usually last more than an hour in such an environment.
+    - The last type of environment relevant to quiet are environments with sporadic and jumping noises where while the overall average sound of the environment may be good for studying, e.g. a dog barking, constructiongoing on in the background, yelling. are all things that can end up still distracting the user.
+
+Features
+    - A live noise monitor based on microphone audio that takes in audio data (doesn't record the audio) and projects it on a graph as dbFS. 
+    - A noise limiter to cause a trigger when average audio is too loud. This can be calibrated based on a recorded sample of microphone audio or it can set manually to a limit that the user finds more suitable. This in combination with the noise monitor leads to a responsive experience when using QuietMind
+    - An adjustable studying timer which creates a record of a session when completed.
+    - These sessions are stored locally in the browser but also could be exported to json to have a backup of previous study sessions
+    - A white noise feature is included in quietmind to aim to solve the second and third use cases related to having a suitable study environment. With the goal to firstly, provide some noise to not have the user of the application study in pure silence.
+    - The white noise feature is also responsive as it is configured to respond to the entropy of the of the monitored microphone audio. If the entropy is higher, the white noise would be louder to compensate for the chaotic jumping audio levels in a goal to reduce the overall entropy of noise for the user. The whitenoise part of quietmind has multiple sliders including a manual volume override, entropy smoothing where a higher number of samples results in a more smooth calculation of entropy and a response sensitivity slider that determines how much impact entropy has on the volume of the whitenoise.
+
+Conclusion
+    - Thankyou for listening to my showcase of quiet mind, have a great day.
